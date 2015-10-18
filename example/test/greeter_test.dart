@@ -21,4 +21,13 @@ class GreeterTest implements TestCase {
   it_does_not_work() {
     expect(greeter.sayHelloTo('Kasper'), equals('Hello, Emil'));
   }
+
+  @Test(parameters: const [
+    const ['David', 'Hello, David'],
+    const ['Kasper', 'Hello, Kasper'],
+    const ['World', 'Hello, World'],
+  ])
+  it_works_for_different_cases(String name, String greet) {
+    expect(greeter.sayHelloTo(name), equals(greet));
+  }
 }
